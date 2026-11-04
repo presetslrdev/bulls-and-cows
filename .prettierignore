@@ -3,3 +3,4 @@ dist
 coverage
 .husky
 package-lock.json
+
