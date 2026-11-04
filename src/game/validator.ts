@@ -24,7 +24,19 @@ export const createDigitValidator = (base: RadixBase): ((char: string) => boolea
  * - each character is a valid digit for base (using createDigitValidator)
  * - all digits are unique (case-insensitive for hex)
  */
-export const isValidGuess = (_guess: string, _length: number, _base: RadixBase): boolean => {
-  // Stub implementation for TDD red phase
-  return false;
+export const isValidGuess = (guess: string, length: number, base: RadixBase): boolean => {
+  if (typeof guess !== "string" || guess.length !== length) {
+    return false;
+  }
+
+  const isDigit = createDigitValidator(base);
+  const normalized = guess.toLowerCase();
+
+  const allDigitsValid = normalized.split("").every(isDigit);
+  if (!allDigitsValid) {
+    return false;
+  }
+
+  const uniqueDigits = new Set(normalized);
+  return uniqueDigits.size === length;
 };
