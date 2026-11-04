@@ -1,6 +1,13 @@
-// Entry point for Bulls and Cows application
+import "./ui/style.css";
+import { renderApp } from "./ui/app";
+
 export const initApp = (): void => {
-  // App initialization will be attached here
+  const root = document.body;
+  renderApp(root);
 };
 
-initApp();
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initApp);
+} else {
+  initApp();
+}
