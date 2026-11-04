@@ -17,3 +17,14 @@ export const createDigitValidator = (base: RadixBase): ((char: string) => boolea
     return allowed.includes(char.toLowerCase());
   };
 };
+
+/**
+ * Validates whether a guess satisfies all game rules:
+ * - exact specified length
+ * - each character is a valid digit for base (using createDigitValidator)
+ * - all digits are unique (case-insensitive for hex)
+ */
+export const isValidGuess = (_guess: string, _length: number, _base: RadixBase): boolean => {
+  // Stub implementation for TDD red phase
+  return false;
+};
